@@ -183,7 +183,7 @@ function renderCalendar(month, year) {
     }
     calendar += '</tr>';
     if (date > daysInMonth) break;
-  }
+    }
   document.getElementById('calendar-body').innerHTML = calendar;
   document.getElementById('calendar-month').innerText = monthNames[month] + ' ' + year;
 }
