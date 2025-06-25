@@ -150,4 +150,4 @@ renderCalendar(currentMonth, currentYear);
 #calendar-table th, #calendar-table td { width: 40px; height: 40px; vertical-align: middle; font-size: 16px; }
 #calendar-table th { background: #f4f6f9; font-weight: 600; }
 #calendar-month { font-weight: 600; }
-</style> 
+</style>
