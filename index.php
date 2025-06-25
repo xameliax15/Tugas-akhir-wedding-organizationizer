@@ -38,25 +38,53 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 1) {
 // Routing ke controller
 switch ($page) {
     case 'dashboard':
-        $content = dashboard_controller();
+        dashboard_controller();
         break;
     case 'user':
         $content = user_controller($action);
-        break;
+        include $content;
+        exit();
+    case 'edit_user':
+        require_once __DIR__ . '/models/User.php';
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $user = get_user_by_id($id);
+            if ($user) {
+                include __DIR__ . '/views/edit_user.php';
+                exit();
+            }
+        }
+        $error = 'User tidak ditemukan!';
+        include __DIR__ . '/views/user_list.php';
+        exit();
+    case 'user_role':
+        require_once __DIR__ . '/models/User.php';
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $user = get_user_by_id($id);
+            if ($user) {
+                include __DIR__ . '/views/user_role.php';
+                exit();
+            }
+        }
+        $error = 'User tidak ditemukan!';
+        include __DIR__ . '/views/user_list.php';
+        exit();
     case 'product':
         $content = product_controller($action);
-        break;
+        include $content;
+        exit();
     case 'wedding':
         $content = wedding_controller($action);
-        break;
+        include $content;
+        exit();
     case 'booking':
         $content = booking_controller($action);
-        break;
+        include $content;
+        exit();
     default:
         $content = __DIR__ . '/views/dashboard.php';
         $error = 'Halaman tidak ditemukan!';
         break;
 }
 
-// Tampilkan layout utama
-include __DIR__ . '/views/layout.php'; 

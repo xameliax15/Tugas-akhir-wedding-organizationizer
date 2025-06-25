@@ -1,59 +1,162 @@
-<div class="wp-admin-wrapper">
-  <!-- Sidebar -->
-  <nav class="wp-sidebar bg-dark text-white d-flex flex-column p-0">
-    <div class="sidebar-header text-center py-4 mb-2 border-bottom border-secondary">
-      <span style="font-size:1.5rem;font-weight:700;letter-spacing:1px;">LINDA SALON</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Admin - LINDA SALON</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { font-family: 'Roboto', Arial, sans-serif; background: #f4f6f9; margin: 0; }
+        .container-admin { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 240px;
+            background: #23282d;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
+        }
+        .sidebar .brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 32px 32px 16px 32px;
+            width: 100%;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        .sidebar .menu {
+            width: 100%;
+            margin-top: 24px;
+        }
+        .sidebar .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar .menu li {
+            width: 100%;
+        }
+        .sidebar .menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b4bcc2;
+            text-decoration: none;
+            padding: 12px 32px;
+            font-size: 1rem;
+            border-left: 4px solid transparent;
+            transition: background 0.2s, border 0.2s, color 0.2s;
+        }
+        .sidebar .menu a.active, .sidebar .menu a:hover {
+            background: #1e2227;
+            color: #fff;
+            border-left: 4px solid #007cba;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px 32px;
+            background: #f4f6f9;
+            min-height: 100vh;
+        }
+        .calendar-box {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 32px 24px 24px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .calendar-header h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #23282d;
+            margin: 0 16px;
+            letter-spacing: 1px;
+        }
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        .calendar-table th, .calendar-table td {
+            border: 1px solid #b3c6e0;
+            width: 13.5%;
+            height: 70px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 15px;
+            padding: 6px 8px;
+            position: relative;
+        }
+        .calendar-table th {
+            background: #f4f6f9;
+            color: #23282d;
+            font-weight: 600;
+            text-align: center;
+        }
+        .calendar-table td {
+            background: #fff;
+        }
+        .calendar-table .date-number {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1976d2;
+            position: absolute;
+            top: 6px;
+            left: 8px;
+        }
+        @media (max-width: 900px) {
+            .main-content { padding: 16px 4px; }
+            .calendar-box { padding: 12px 2px; }
+            .sidebar { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container-admin">
+    <div class="sidebar">
+        <div class="brand">LINDA SALON</div>
+        <nav class="menu">
+            <ul>
+                <li><a href="?page=dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Menu Admin</a></li>
+                <li><a href="?page=user"><i class="fas fa-users"></i> Data User</a></li>
+                <li><a href="?page=product"><i class="fas fa-box"></i> Data Produk</a></li>
+                <li><a href="?page=wedding"><i class="fas fa-gift"></i> Data Paket Pernikahan</a></li>
+                <li><a href="?page=booking"><i class="fas fa-calendar"></i> Data Booking</a></li>
+                <li style="margin-top:32px;"><a href="?page=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
     </div>
-    <ul class="nav flex-column wp-menu">
-      <li class="nav-item mb-1"><a href="?page=dashboard" class="nav-link active"><i class="fas fa-tachometer-alt"></i> <span class="ml-2">Dashboard</span></a></li>
-      <li class="nav-item mb-1"><a href="?page=user" class="nav-link"><i class="fas fa-users"></i> <span class="ml-2">Data User</span></a></li>
-      <li class="nav-item mb-1"><a href="?page=product" class="nav-link"><i class="fas fa-box"></i> <span class="ml-2">Data Produk</span></a></li>
-      <li class="nav-item mb-1"><a href="?page=wedding" class="nav-link"><i class="fas fa-gift"></i> <span class="ml-2">Data Paket Wedding</span></a></li>
-      <li class="nav-item mb-1"><a href="?page=booking" class="nav-link"><i class="fas fa-calendar"></i> <span class="ml-2">Data Booking</span></a></li>
-    </ul>
-  </nav>
-  <!-- Main Content -->
-  <div class="wp-main-content">
-    <div class="wp-topbar bg-white d-flex align-items-center justify-content-between px-4 py-3 border-bottom">
-      <div class="h4 mb-0 font-weight-bold">Dashboard</div>
-      <div class="user-info d-flex align-items-center">
-        <i class="fas fa-user-circle fa-lg mr-2 text-secondary"></i>
-        <span class="font-weight-bold text-secondary">Admin</span>
-      </div>
-    </div>
-    <div class="container-fluid py-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <div class="calendar-container">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <h5 class="mb-0" id="calendar-month">November 2018</h5>
-                  <div>
-                    <button class="btn btn-sm btn-outline-primary" onclick="prevMonth()"><i class="fas fa-chevron-left"></i></button>
-                    <button class="btn btn-sm btn-outline-primary" onclick="nextMonth()"><i class="fas fa-chevron-right"></i></button>
-                  </div>
-                </div>
-                <table class="table table-bordered text-center" id="calendar-table">
-                  <thead class="thead-light">
-    <tr>
-        <th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th>
-    </tr>
-                  </thead>
-                  <tbody id="calendar-body">
-                    <!-- Kalender akan diisi oleh JS -->
-                  </tbody>
-                </table>
-              </div>
+    <div class="main-content">
+        <div class="calendar-box">
+            <div class="calendar-header">
+                <button onclick="prevMonth()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:#1976d2;"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="calendar-month">November 2018</h2>
+                <button onclick="nextMonth()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:#1976d2;"><i class="fas fa-chevron-right"></i></button>
             </div>
-          </div>
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Kalender diisi JS -->
+                </tbody>
+            </table>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <script>
-// Kalender dinamis
 const monthNames = [
   'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
   'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
@@ -61,7 +164,6 @@ const monthNames = [
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
-
 function renderCalendar(month, year) {
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -69,10 +171,15 @@ function renderCalendar(month, year) {
   let calendar = '';
   for (let i = 0; i < 6; i++) {
     calendar += '<tr>';
-    for (let j = 1; j <= 7; j++) {
-      let cellDay = (i === 0 && j < ((firstDay === 0 ? 7 : firstDay))) ? '' : (date <= daysInMonth ? date : '');
-      if (cellDay !== '') date++;
-      calendar += `<td>${cellDay}</td>`;
+    for (let j = 0; j < 7; j++) {
+      if (i === 0 && j < firstDay) {
+        calendar += '<td></td>';
+      } else if (date > daysInMonth) {
+        calendar += '<td></td>';
+      } else {
+        calendar += `<td><span class='date-number'>${date}</span></td>`;
+        date++;
+      }
     }
     calendar += '</tr>';
     if (date > daysInMonth) break;
@@ -98,56 +205,5 @@ function nextMonth() {
 }
 renderCalendar(currentMonth, currentYear);
 </script>
-<style>
-.wp-admin-wrapper {
-  display: flex;
-  min-height: 80vh;
-}
-.wp-sidebar {
-  width: 230px;
-  min-height: 100vh;
-  background: #23282d !important;
-  color: #fff;
-  border-right: 1px solid #222;
-}
-.wp-sidebar .sidebar-header {
-  background: #23282d;
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-.wp-menu .nav-link {
-  color: #b4bcc2;
-  border-radius: 4px;
-  padding: 10px 18px;
-  font-size: 1rem;
-  transition: background 0.2s, color 0.2s;
-}
-.wp-menu .nav-link.active, .wp-menu .nav-link:hover {
-  background: #007cba;
-  color: #fff;
-}
-.wp-menu .nav-link i { width: 20px; text-align: center; }
-.wp-main-content {
-  flex: 1;
-  background: #f4f6f9;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.wp-topbar {
-  min-height: 56px;
-  border-bottom: 1px solid #e0e0e0;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.card { border-radius: 10px; }
-.calendar-container { max-width: 700px; margin: 0 auto; }
-#calendar-table { background: #fff; }
-#calendar-table th, #calendar-table td { width: 40px; height: 40px; vertical-align: middle; font-size: 16px; }
-#calendar-table th { background: #f4f6f9; font-weight: 600; }
-#calendar-month { font-weight: 600; }
-</style>
+</body>
+</html>
