@@ -38,12 +38,12 @@ function get_user_by_id($id) {
     return $result->fetch_assoc();
 }
 
-function create_user($id, $nama, $email, $password, $role = 1, $photo = null) {
+function create_user($id, $nama, $username, $email, $password, $role = 1, $photo = null) {
     global $conn;
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $now = date('Y-m-d H:i:s');
-    $stmt = $conn->prepare("INSERT INTO User (id, nama, email, password, createAt, updateAt, role, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssis", $id, $nama, $email, $hash, $now, $now, $role, $photo);
+    $stmt = $conn->prepare("INSERT INTO User (id, nama, username, email, password, createAt, updateAt, role, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssis", $id, $nama, $username, $email, $hash, $now, $now, $role, $photo);
     return $stmt->execute();
 }
 
